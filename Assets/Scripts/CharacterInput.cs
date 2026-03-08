@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 
 public class CharacterInput : MonoBehaviour
 {
-    [SerializeField, ReadOnly] private Vector2 move;
-    public Vector2 GetMoveInput() => move;
+    [SerializeField, ReadOnly] private Vector3 move;
+    public Vector3 GetMoveInput() => move;
 
     [SerializeField, ReadOnly] private Vector2 look;
     public Vector2 GetLookInput() => look;
@@ -15,6 +15,8 @@ public class CharacterInput : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction interactAction;
+
+    private bool isInputEnabled = true;
 
     void Awake()
     {
@@ -39,21 +41,29 @@ public class CharacterInput : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        move = value.Get<Vector2>();
+        if (!isInputEnabled) return;
+
+        move = value.Get<Vector3>();
     }
 
     public void OnLook(InputValue value)
     {
+        if (!isInputEnabled) return;
+
         look = value.Get<Vector2>();
     }
 
     private void OnInteractPerformed(InputAction.CallbackContext context)
     {
+        if (!isInputEnabled) return;
+
         isInteracting = true;
     }
 
     private void OnInteractCanceled(InputAction.CallbackContext context)
     {
+        if (!isInputEnabled) return;
+
         isInteracting = false;
     }
 
@@ -67,5 +77,10 @@ public class CharacterInput : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
         }
+    }
+
+    public void SetInputEnabled(bool toSet)
+    {
+        isInputEnabled = toSet;
     }
 }
