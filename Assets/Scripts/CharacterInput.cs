@@ -13,6 +13,9 @@ public class CharacterInput : MonoBehaviour
     [SerializeField, ReadOnly] private bool isInteracting;
     public bool GetInteractInput() => isInteracting;
 
+    [SerializeField, ReadOnly] private float speedChange;
+    public float GetSpeedChange() => speedChange;
+
     private PlayerInput playerInput;
     private InputAction interactAction;
 
@@ -65,6 +68,13 @@ public class CharacterInput : MonoBehaviour
         if (!isInputEnabled) return;
 
         isInteracting = false;
+    }
+
+    private void OnSpeedChange(InputValue value)
+    {
+        if (!isInputEnabled) return;
+        
+        speedChange = value.Get<float>();
     }
 
     public void SetMouseActive(bool newActive)
