@@ -16,4 +16,9 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneToLoad);
     }
+
+    public void SetSceneToLoad(string newLevel)
+    {
+        SceneToLoad = newLevel;
+    }
 }
