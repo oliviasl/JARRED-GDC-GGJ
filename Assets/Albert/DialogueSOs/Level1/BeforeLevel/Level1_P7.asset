@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
+  m_Name: Level1_P7
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
+  dialogueText: Well...
+  nextDialogue: {fileID: 11400000, guid: 087ac95664efc2c43a8c62b2ac1b3d11, type: 2}
+  isInteractable: 1
+  dialogueID: 7
