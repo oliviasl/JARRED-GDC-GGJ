@@ -73,7 +73,7 @@ public class CharacterInput : MonoBehaviour
     private void OnSpeedChange(InputValue value)
     {
         if (!isInputEnabled) return;
-        
+
         speedChange = value.Get<float>();
     }
 
@@ -81,11 +81,13 @@ public class CharacterInput : MonoBehaviour
     {
         if (newActive == false)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 

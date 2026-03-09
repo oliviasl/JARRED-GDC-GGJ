@@ -4,21 +4,18 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlaneController : MonoBehaviour
+public class SimplePlaneController : MonoBehaviour
 {
     private CharacterInput Input;
     private Rigidbody rb;
 
-    [SerializeField] private float minFlySpeed;
-    [SerializeField] private float maxFlySpeed;
+    [SerializeField] private float minFlySpeed = 20f;
+    [SerializeField] private float maxFlySpeed = 80f;
     [SerializeField] private float speedChangeMagnitude = 5f;
-    [SerializeField] private float turnSensitivity = 30f;
-    [SerializeField] private float autoRollMultiplier = 20f;
-    [SerializeField, Range(1f, 20f)] private float rotationSmoothing = 5f;
+    [SerializeField] private float pitchSensitivity = 80f;
+    [SerializeField, Range(1f, 50f)] private float rotationSmoothing = 15f;
 
     [SerializeField, ReadOnly] private float flySpeed;
-    private Vector3 flyDirection;
-    private Quaternion targetRotation;
 
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private Image speedometer;
@@ -27,15 +24,18 @@ public class PlaneController : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform imageRect;
     [SerializeField] private float maxRadius = 150f;
+    [SerializeField, Range(1f, 4f)] private float pitchExponent = 2f;
+    [SerializeField, Range(0f, 0.3f)] private float deadzone = 0.1f;
+
+    private RectTransform canvasRect;
 
     void Awake()
     {
         Input = GetComponent<CharacterInput>();
         rb = GetComponent<Rigidbody>();
-        rb.maxAngularVelocity = 5f;
+        rb.maxAngularVelocity = 10f;
 
-        flyDirection = transform.forward;
-        targetRotation = transform.rotation;
+        canvasRect = canvas.GetComponent<RectTransform>();
 
         flySpeed = minFlySpeed;
     }
@@ -43,26 +43,25 @@ public class PlaneController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 crosshairOffset = UpdateCrosshair();
-        Vector2 normalizedOffset = crosshairOffset / maxRadius;
+        float pitchInput = ProcessPitchInput(crosshairOffset.y);
 
-        float pitchInput = -normalizedOffset.y * turnSensitivity;
-        float yawInput   =  normalizedOffset.x * turnSensitivity;
-        float rollInput  = -normalizedOffset.x * autoRollMultiplier;
-
-        Quaternion pitch = Quaternion.AngleAxis(pitchInput * Time.fixedDeltaTime, Vector3.right);
-        Quaternion yaw   = Quaternion.AngleAxis(yawInput   * Time.fixedDeltaTime, Vector3.up);
-        Quaternion roll  = Quaternion.AngleAxis(rollInput  * Time.fixedDeltaTime, Vector3.forward);
-
-        targetRotation *= pitch * yaw * roll;
+        Quaternion pitch = Quaternion.AngleAxis(-pitchInput * pitchSensitivity * Time.fixedDeltaTime, transform.right);
+        Quaternion targetRotation = pitch * rb.rotation;
         targetRotation.Normalize();
 
-        Quaternion smoothedRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSmoothing * Time.fixedDeltaTime);
-        rb.MoveRotation(smoothedRotation);
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSmoothing * Time.fixedDeltaTime));
 
         UpdateSpeed();
+        rb.MovePosition(rb.position + transform.forward * flySpeed * Time.fixedDeltaTime);
+    }
 
-        flyDirection = transform.forward;
-        transform.position += flyDirection * flySpeed * Time.deltaTime;
+    private float ProcessPitchInput(float offsetY)
+    {
+        float normalized = offsetY / maxRadius;
+        float mag = Mathf.Abs(normalized);
+        float deadzoned = Mathf.Max(0f, mag - deadzone) / (1f - deadzone);
+        float curved = Mathf.Pow(deadzoned, pitchExponent);
+        return Mathf.Sign(normalized) * curved;
     }
 
     private void UpdateSpeed()
@@ -83,7 +82,7 @@ public class PlaneController : MonoBehaviour
         Vector2 screenPos = Mouse.current.position.ReadValue();
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.GetComponent<RectTransform>(),
+            canvasRect,
             screenPos,
             canvas.worldCamera,
             out Vector2 mousePos
