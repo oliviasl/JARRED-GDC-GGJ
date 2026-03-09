@@ -41,7 +41,7 @@ public class ImageDetectionManager : MonoBehaviour
         results.reference = _trueImg;
         results.similarity = CompareStrings(testStr, trueStr);
         
-        SceneManager.LoadScene("ScoreScreen");
+        SceneController.Instance.LoadScene();
     }
 
     private string GenerateStringFromImage(Texture2D tex, bool isDetectBlack)
