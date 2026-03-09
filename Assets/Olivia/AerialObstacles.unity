@@ -633,10 +633,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 338367692835240269, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: b16192e120f584458b482115eb693030, type: 2}
     - target: {fileID: 1778726008292941782, guid: efde458de45d24815b22405e272cfecf, type: 3}
       propertyPath: _qteMinigame
       value: 
       objectReference: {fileID: 2045982276}
+    - target: {fileID: 2366479991562347744, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 2553942802021669845, guid: efde458de45d24815b22405e272cfecf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -718,13 +746,29 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3529351230616594277, guid: efde458de45d24815b22405e272cfecf, type: 3}
-      propertyPath: m_Color.g
+      propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3529351230616594277, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5490196
+      objectReference: {fileID: 0}
+    - target: {fileID: 3529351230616594277, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 2716ed3d2f6354a1fb2cbabb923e56ae, type: 2}
     - target: {fileID: 4615816921802498391, guid: efde458de45d24815b22405e272cfecf, type: 3}
       propertyPath: m_Name
       value: PlaneHUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4993390381771327387, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5905381024276549456, guid: efde458de45d24815b22405e272cfecf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 2716ed3d2f6354a1fb2cbabb923e56ae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5096803471567641521, guid: efde458de45d24815b22405e272cfecf, type: 3}
