@@ -79,17 +79,22 @@ public class ImageDetectionManager : MonoBehaviour
     private float CompareStrings(string str1, string str2)
     {
         int similarCount = 0;
+        int pixelCount = 0;
         for (int i = 0; i < str1.Length; ++i)
         {
-            if (str1[i] == str2[i])
+            if (str1[i] == '*')
             {
-                similarCount++;
+                ++pixelCount;
+                if (str1[i] == str2[i])
+                {
+                    similarCount++;
+                }
             }
         }
         
         Debug.Log("Similarity score: " + (float)similarCount / (float)str1.Length);
         
-        return (float)similarCount / (float)str1.Length;
+        return (float)similarCount / (float)pixelCount;
     }
     
     private Texture2D ResizeTexture(Texture2D source, int targetWidth, int targetHeight)
