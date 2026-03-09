@@ -9,59 +9,69 @@ public class SimplePlaneController : MonoBehaviour
     private CharacterInput Input;
     private Rigidbody rb;
 
-    [SerializeField] private float minFlySpeed = 20f;
-    [SerializeField] private float maxFlySpeed = 80f;
+    [SerializeField] private float minFlySpeed;
+    [SerializeField] private float maxFlySpeed;
     [SerializeField] private float speedChangeMagnitude = 5f;
-    [SerializeField] private float pitchSensitivity = 80f;
-    [SerializeField, Range(1f, 50f)] private float rotationSmoothing = 15f;
+    [SerializeField] private float turnSensitivity = 30f;
+    [SerializeField, Range(1f, 20f)] private float rotationSmoothing = 5f;
 
     [SerializeField, ReadOnly] private float flySpeed;
+    private Vector3 flyDirection;
+    private Quaternion targetRotation;
 
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private Image speedometer;
+    [SerializeField] private Image artificialHorizon;
 
     [Header("Crosshair")]
     [SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform imageRect;
     [SerializeField] private float maxRadius = 150f;
-    [SerializeField, Range(1f, 4f)] private float pitchExponent = 2f;
-    [SerializeField, Range(0f, 0.3f)] private float deadzone = 0.1f;
+    [SerializeField] private float mouseSensitivity = 40f;
+    [SerializeField] private float deadzoneRadius = 20f;
 
-    private RectTransform canvasRect;
+    private Vector2 virtualMousePos;
 
     void Awake()
     {
         Input = GetComponent<CharacterInput>();
         rb = GetComponent<Rigidbody>();
-        rb.maxAngularVelocity = 10f;
+        rb.maxAngularVelocity = 5f;
 
-        canvasRect = canvas.GetComponent<RectTransform>();
+        flyDirection = transform.forward;
+        targetRotation = transform.rotation;
 
         flySpeed = minFlySpeed;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void FixedUpdate()
     {
         Vector2 crosshairOffset = UpdateCrosshair();
-        float pitchInput = ProcessPitchInput(crosshairOffset.y);
+        Vector2 normalizedOffset = crosshairOffset / maxRadius;
 
-        Quaternion pitch = Quaternion.AngleAxis(-pitchInput * pitchSensitivity * Time.fixedDeltaTime, transform.right);
-        Quaternion targetRotation = pitch * rb.rotation;
+        float pitchInput = -normalizedOffset.y * turnSensitivity * 1.5f;
+
+        Quaternion pitch = Quaternion.AngleAxis(pitchInput * Time.fixedDeltaTime, Vector3.right);
+
+        targetRotation *= pitch;
         targetRotation.Normalize();
 
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSmoothing * Time.fixedDeltaTime));
+        Quaternion smoothedRotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSmoothing * Time.fixedDeltaTime);
+        rb.MoveRotation(smoothedRotation);
 
         UpdateSpeed();
-        rb.MovePosition(rb.position + transform.forward * flySpeed * Time.fixedDeltaTime);
-    }
 
-    private float ProcessPitchInput(float offsetY)
-    {
-        float normalized = offsetY / maxRadius;
-        float mag = Mathf.Abs(normalized);
-        float deadzoned = Mathf.Max(0f, mag - deadzone) / (1f - deadzone);
-        float curved = Mathf.Pow(deadzoned, pitchExponent);
-        return Mathf.Sign(normalized) * curved;
+        //Vector3 planeForward = targetRotation * Vector3.forward;
+        //Vector3 planeUp = targetRotation * Vector3.up;
+        //Vector3 worldUpOnPlane = Vector3.ProjectOnPlane(Vector3.up, planeForward).normalized;
+        //float rollAngle = Vector3.SignedAngle(worldUpOnPlane, planeUp, planeForward);
+        //artificialHorizon.rectTransform.localRotation = Quaternion.Euler(0f, 0f, -rollAngle);
+
+        flyDirection = transform.forward;
+        transform.position += flyDirection * flySpeed * Time.deltaTime;
     }
 
     private void UpdateSpeed()
@@ -79,19 +89,16 @@ public class SimplePlaneController : MonoBehaviour
 
     private Vector2 UpdateCrosshair()
     {
-        Vector2 screenPos = Mouse.current.position.ReadValue();
+        Vector2 delta = Mouse.current.delta.ReadValue();
+        delta.x = 0f;
+        virtualMousePos += delta * mouseSensitivity * Time.deltaTime;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect,
-            screenPos,
-            canvas.worldCamera,
-            out Vector2 mousePos
-        );
+        if (virtualMousePos.magnitude > maxRadius)
+            virtualMousePos = virtualMousePos.normalized * maxRadius;
 
-        if (mousePos.magnitude > maxRadius)
-            mousePos = mousePos.normalized * maxRadius;
+        Vector2 output = virtualMousePos.magnitude < deadzoneRadius ? Vector2.zero : virtualMousePos;
 
-        imageRect.anchoredPosition = mousePos;
-        return mousePos;
+        imageRect.anchoredPosition = output;
+        return output;
     }
 }
