@@ -59181,7 +59181,7 @@ MonoBehaviour:
   imageRect: {fileID: 2011421820434773507}
   maxRadius: 200
   mouseSensitivity: 40
-  deadzoneRadius: 20
+  deadzoneRadius: 0
 --- !u!114 &4970341111157234434
 MonoBehaviour:
   m_ObjectHideFlags: 0

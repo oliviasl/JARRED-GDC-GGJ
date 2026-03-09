@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using OpenAI;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class ImageDetectionManager : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class ImageDetectionManager : MonoBehaviour
         results.reference = _trueImg;
         results.similarity = CompareStrings(testStr, trueStr);
         
-        
+        SceneManager.LoadScene("ScoreScreen");
     }
 
     private string GenerateStringFromImage(Texture2D tex, bool isDetectBlack)
