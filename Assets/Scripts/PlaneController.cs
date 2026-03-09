@@ -22,6 +22,7 @@ public class PlaneController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI speedText;
     [SerializeField] private Image speedometer;
+    [SerializeField] private Image artificialHorizon;
 
     [Header("Crosshair")]
     [SerializeField] private Canvas canvas;
@@ -54,7 +55,7 @@ public class PlaneController : MonoBehaviour
 
         float pitchInput = -normalizedOffset.y * turnSensitivity * 1.5f;
         float yawInput   =  normalizedOffset.x * turnSensitivity;
-        float rollInput = -Input.GetMoveInput().z * rollSensitivity;
+        float rollInput = -Input.GetMoveInput().x * rollSensitivity;
 
         Quaternion pitch = Quaternion.AngleAxis(pitchInput * Time.fixedDeltaTime, Vector3.right);
         Quaternion yaw   = Quaternion.AngleAxis(yawInput * Time.fixedDeltaTime, Vector3.up);
@@ -67,6 +68,12 @@ public class PlaneController : MonoBehaviour
         rb.MoveRotation(smoothedRotation);
 
         UpdateSpeed();
+
+        Vector3 planeForward = targetRotation * Vector3.forward;
+        Vector3 planeUp = targetRotation * Vector3.up;
+        Vector3 worldUpOnPlane = Vector3.ProjectOnPlane(Vector3.up, planeForward).normalized;
+        float rollAngle = Vector3.SignedAngle(worldUpOnPlane, planeUp, planeForward);
+        artificialHorizon.rectTransform.localRotation = Quaternion.Euler(0f, 0f, -rollAngle);
 
         flyDirection = transform.forward;
         transform.position += flyDirection * flySpeed * Time.deltaTime;
@@ -87,7 +94,6 @@ public class PlaneController : MonoBehaviour
 
     private Vector2 UpdateCrosshair()
     {
-        // Accumulate virtual position from delta, scaled by mouseSensitivity
         Vector2 delta = Mouse.current.delta.ReadValue();
         virtualMousePos += delta * mouseSensitivity * Time.deltaTime;
 
