@@ -10,6 +10,9 @@ public class ImageDetectionManager : MonoBehaviour
     [SerializeField] private Texture2D _trueImg;
     [SerializeField] private int _textureSize = 128;
 
+    public string GetStringFromImage(Texture2D tex, bool isDetectBlack = false)
+        => GenerateStringFromImage(tex, isDetectBlack);
+
     public void TakeScreenshotAndCompare()
     {
         // take screenshot and compare to true image

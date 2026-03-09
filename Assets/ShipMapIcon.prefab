@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3090082847145734344}
   - component: {fileID: 7581251037186706854}
   - component: {fileID: 803096158569917039}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 5640652491283571643}
   - component: {fileID: 7374123563571183116}
   - component: {fileID: 4771067248585454436}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ShipMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7055333829225513372}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 1
@@ -148,7 +148,7 @@ Transform:
   - {fileID: 2204859228638734217}
   - {fileID: 1736732775577709726}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &5640652491283571643
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 2114307813947754821}
   - component: {fileID: 6992176244787632106}
   - component: {fileID: 4374440046023491257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 4046127320687593223}
   - component: {fileID: 3003529736972490070}
   - component: {fileID: 7593331494007677591}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
