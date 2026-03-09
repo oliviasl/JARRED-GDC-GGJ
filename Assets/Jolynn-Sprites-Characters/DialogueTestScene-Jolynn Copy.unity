@@ -693,7 +693,7 @@ Transform:
   m_GameObject: {fileID: 272394874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.38, y: -0.92, z: -1.1067884}
+  m_LocalPosition: {x: 6.14, y: -0.92, z: -1.1067884}
   m_LocalScale: {x: 0.5506411, y: 0.5506411, z: 0.5506411}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1824,7 +1824,7 @@ Transform:
   m_GameObject: {fileID: 1186495676}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: -0.92, z: -1.1067884}
+  m_LocalPosition: {x: -4.04, y: -0.92, z: -1.1067884}
   m_LocalScale: {x: 0.5506411, y: 0.5506411, z: 0.5506411}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2159,6 +2159,51 @@ MonoBehaviour:
     NoiseShiftMin: {x: 0, y: 0, z: 0}
     NoiseShiftMax: {x: 0, y: 0, z: 0}
   DebugWiggleDuration: 2
+--- !u!1 &1962978828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962978830}
+  - component: {fileID: 1962978829}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1962978829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962978828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73cea7cb466e83438a736cb16cf9f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneController
+  SceneToLoad: Gameplay
+--- !u!4 &1962978830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962978828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.98538, y: 2.14452, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1963738731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2258,9 +2303,9 @@ MonoBehaviour:
   onConverstionComplete:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 327161089}
-        m_TargetAssemblyTypeName: SequencePlayer, Assembly-CSharp
-        m_MethodName: PlayDefaultSequence
+      - m_Target: {fileID: 1962978829}
+        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2319,3 +2364,4 @@ SceneRoots:
   - {fileID: 1186495678}
   - {fileID: 272394876}
   - {fileID: 1963738733}
+  - {fileID: 1962978830}

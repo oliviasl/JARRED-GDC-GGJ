@@ -1,5 +1,8 @@
+using Febucci.TextAnimatorForUnity;
+using Febucci.TextAnimatorForUnity.Actions;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -20,6 +23,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private UnityEvent onConverstionComplete;
     [Header("TMP Text")]
     [SerializeField] private TMP_Text dialogueText;
+    //[SerializeField] private TypewriterComponent typewriter;
     [Header("DialogueEvents")]
     [SerializeField] private DialogueEvent[] dialogueEvents;
     [Header("Inputs")]
@@ -68,7 +72,7 @@ public class DialogueController : MonoBehaviour
     IEnumerator WaitToLetDialoguePass(int time)
     {
         yield return new WaitForSeconds(time);
-        dialogueText.text = currentDialogue.dialogueText;
+        //typewriter.ShowText(currentDialogue.dialogueText);
         UpdateDialogue();
     }
 
@@ -79,8 +83,8 @@ public class DialogueController : MonoBehaviour
 
     private void UpdateDialogue()
     {
-        dialogueText.text = currentDialogue.dialogueText;
-        foreach(var dialogueEvent in dialogueEvents)
+        //typewriter.ShowText(currentDialogue.dialogueText);
+        foreach (var dialogueEvent in dialogueEvents)
         {
             if(dialogueEvent.dialogueID == currentDialogue.dialogueID)
             {
@@ -94,7 +98,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             conversationIsComplete = true; //there was no nextDialogue so convo is done
-            onConverstionComplete.Invoke();
+            StartCoroutine(WaitToPerform(5));
         }
         //possibly start a functtion here that "plays" the next dialogue
 
@@ -102,5 +106,10 @@ public class DialogueController : MonoBehaviour
 
     }
 
+    IEnumerator WaitToPerform(int time)
+    {
+        yield return new WaitForSeconds(time);
+        onConverstionComplete.Invoke();
+    }
     
 }
