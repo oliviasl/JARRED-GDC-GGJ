@@ -31,8 +31,16 @@ public class ImageDetectionManager : MonoBehaviour
         Debug.Log(trueStr);
         Debug.Log("Test image");
         Debug.Log(testStr);
+
+        GameObject resultObj = Instantiate(new GameObject());
+        resultObj.AddComponent<Results>();
+        Results results = resultObj.GetComponent<Results>();
+
+        results.screenshot = screenShot;
+        results.reference = _trueImg;
+        results.similarity = CompareStrings(testStr, trueStr);
         
-        CompareStrings(testStr, trueStr);
+        
     }
 
     private string GenerateStringFromImage(Texture2D tex, bool isDetectBlack)
