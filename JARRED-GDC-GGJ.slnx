@@ -3,6 +3,8 @@
   <Project Path="NaughtyAttributes.Test.csproj" />
   <Project Path="NaughtyAttributes.Core.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="ExternalAttributes.Core.csproj" />
+  <Project Path="ExternalAttributes.Editor.csproj" />
   <Project Path="NaughtyAttributes.Editor.csproj" />
   <Project Path="MoreMountains.Tools.Editor.csproj" />
   <Project Path="Lofelt.NiceVibrations.csproj" />
