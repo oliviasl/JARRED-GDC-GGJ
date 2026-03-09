@@ -94,7 +94,7 @@ public class DialogueController : MonoBehaviour
         else
         {
             conversationIsComplete = true; //there was no nextDialogue so convo is done
-            onConverstionComplete.Invoke();
+            StartCoroutine(WaitToPerform(5));
         }
         //possibly start a functtion here that "plays" the next dialogue
 
@@ -102,5 +102,10 @@ public class DialogueController : MonoBehaviour
 
     }
 
+    IEnumerator WaitToPerform(int time)
+    {
+        yield return new WaitForSeconds(time);
+        onConverstionComplete.Invoke();
+    }
     
 }
