@@ -169,8 +169,8 @@ public partial class @TempPlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f73e3d9b-f378-464c-ba8b-a0e1700e56da"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""7edc876b-7e11-409e-8532-e4a1ee12696c"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
