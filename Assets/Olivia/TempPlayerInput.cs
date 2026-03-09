@@ -6,31 +6,36 @@ public class TempPlayerInput : MonoBehaviour
     public float speed = 5f;
     private Rigidbody rb;
     private Vector2 movementInput;
-    private TempPlayerControls controls;
+    private QTEMinigame qteMinigame;
+
+    public static TempPlayerControls Controls;
+    
 
     void Awake()
     {
+        Controls = new TempPlayerControls();
         rb = GetComponent<Rigidbody>();
-        controls = new TempPlayerControls();
+        qteMinigame = GetComponentInChildren<QTEMinigame>();
 
         // Subscribe to the 'Move' action's performed and canceled events
-        controls.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        controls.Player.Move.canceled += ctx => movementInput = Vector2.zero;
+        Controls.Player.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        Controls.Player.Move.canceled += ctx => movementInput = Vector2.zero;
+        Controls.Player.QTE.performed += ctx => qteMinigame.Press();
     }
 
     void OnEnable()
     {
-        if (controls != null)
+        if (Controls != null)
         {
-            controls.Enable();
+            Controls.Enable();
         }
     }
 
     void OnDisable()
     {
-        if (controls != null)
+        if (Controls != null)
         {
-            controls.Disable();
+            Controls.Disable();
         }
     }
 

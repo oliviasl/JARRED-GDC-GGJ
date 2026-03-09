@@ -4,7 +4,7 @@ public class BirdObstacle : AerialObstacle
 {
     [SerializeField] private Canvas _planeHUD;
     [SerializeField] private GameObject _splatImgPrefab;
-    
+
     public override void CollisionEvent(Collision collision)
     {
         base.CollisionEvent(collision);
@@ -29,7 +29,7 @@ public class BirdObstacle : AerialObstacle
             rectTransform.anchorMin = new Vector2(0f, 0f);
             rectTransform.anchorMax = new Vector2(0f, 0f);
             rectTransform.anchoredPosition = new Vector2(screenPosition.x / _planeHUD.scaleFactor, screenPosition.y / _planeHUD.scaleFactor);
-                
+
             Destroy(gameObject);
         }
     }
