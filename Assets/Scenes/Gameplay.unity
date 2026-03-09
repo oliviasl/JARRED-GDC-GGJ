@@ -1109,6 +1109,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27383212}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &27848401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5534580140856304522, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
+  m_PrefabInstance: {fileID: 731896531}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &27848409
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27848401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4.024765, z: 1.7178932}
+  m_Center: {x: 1.548228e-15, y: -0.086164474, z: 0.3589468}
 --- !u!1 &27959011
 GameObject:
   m_ObjectHideFlags: 0
@@ -32716,6 +32742,10 @@ PrefabInstance:
       propertyPath: _trueImg
       value: 
       objectReference: {fileID: 2800000, guid: fa9184326f14b5d4c864a0e0376b2e0e, type: 3}
+    - target: {fileID: 5534580140856304522, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5793224772734807675, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 248
@@ -36887,7 +36917,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5793224772734807675, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1347995058}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5534580140856304522, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 27848409}
   m_SourcePrefab: {fileID: 100100000, guid: 261c74caf1e6816428e81ccab17f27f2, type: 3}
 --- !u!1 &734104688
 GameObject:
@@ -78029,6 +78062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1590244845}
   - component: {fileID: 1590244844}
+  - component: {fileID: 1590244846}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -78116,6 +78150,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1590244846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590244843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &1592070331
 GameObject:
   m_ObjectHideFlags: 0
