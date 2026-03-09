@@ -1139,6 +1139,8 @@ MonoBehaviour:
   canvas: {fileID: 1345834163}
   imageRect: {fileID: 2033027301}
   maxRadius: 200
+  mouseSensitivity: 40
+  deadzoneRadius: 30
 --- !u!114 &1246618148
 MonoBehaviour:
   m_ObjectHideFlags: 0

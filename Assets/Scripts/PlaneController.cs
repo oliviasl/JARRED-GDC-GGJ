@@ -27,6 +27,10 @@ public class PlaneController : MonoBehaviour
     [SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform imageRect;
     [SerializeField] private float maxRadius = 150f;
+    [SerializeField] private float mouseSensitivity = 40f;
+    [SerializeField] private float deadzoneRadius = 20f;
+
+    private Vector2 virtualMousePos;
 
     void Awake()
     {
@@ -38,6 +42,9 @@ public class PlaneController : MonoBehaviour
         targetRotation = transform.rotation;
 
         flySpeed = minFlySpeed;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void FixedUpdate()
@@ -80,19 +87,16 @@ public class PlaneController : MonoBehaviour
 
     private Vector2 UpdateCrosshair()
     {
-        Vector2 screenPos = Mouse.current.position.ReadValue();
+        // Accumulate virtual position from delta, scaled by mouseSensitivity
+        Vector2 delta = Mouse.current.delta.ReadValue();
+        virtualMousePos += delta * mouseSensitivity * Time.deltaTime;
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.GetComponent<RectTransform>(),
-            screenPos,
-            canvas.worldCamera,
-            out Vector2 mousePos
-        );
+        if (virtualMousePos.magnitude > maxRadius)
+            virtualMousePos = virtualMousePos.normalized * maxRadius;
 
-        if (mousePos.magnitude > maxRadius)
-            mousePos = mousePos.normalized * maxRadius;
+        Vector2 output = virtualMousePos.magnitude < deadzoneRadius ? Vector2.zero : virtualMousePos;
 
-        imageRect.anchoredPosition = mousePos;
-        return mousePos;
+        imageRect.anchoredPosition = output;
+        return output;
     }
 }

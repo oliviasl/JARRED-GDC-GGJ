@@ -23,8 +23,6 @@ public class CharacterInput : MonoBehaviour
 
     void Awake()
     {
-        SetMouseActive(false);
-
         playerInput = GetComponent<PlayerInput>();
         interactAction = playerInput.actions["Interact"];
     }
@@ -76,21 +74,6 @@ public class CharacterInput : MonoBehaviour
 
         speedChange = value.Get<float>();
     }
-
-    public void SetMouseActive(bool newActive)
-    {
-        if (newActive == false)
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = false;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-        }
-    }
-
     public void SetInputEnabled(bool toSet)
     {
         isInputEnabled = toSet;
