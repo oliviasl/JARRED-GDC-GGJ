@@ -1936,7 +1936,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   dialogueText: {fileID: 218108199}
-  typewriter: {fileID: 2061936341}
   dialogueEvents:
   - dialogueID: 8
     onDialogueReached:
