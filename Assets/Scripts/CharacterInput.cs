@@ -18,13 +18,18 @@ public class CharacterInput : MonoBehaviour
 
     private PlayerInput playerInput;
     private InputAction interactAction;
+    private InputAction qteAction;
+
+    private QTEMinigame qteMinigame;
 
     private bool isInputEnabled = true;
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+        qteMinigame = FindAnyObjectByType<QTEMinigame>();
         interactAction = playerInput.actions["Interact"];
+        qteAction = playerInput.actions["QTE"];
     }
 
     void OnEnable()
@@ -32,12 +37,14 @@ public class CharacterInput : MonoBehaviour
         interactAction = GetComponent<PlayerInput>().actions["Interact"];
         interactAction.performed += OnInteractPerformed;
         interactAction.canceled += OnInteractCanceled;
+        qteAction.performed += OnQTEPerformed;
     }
 
     void OnDisable()
     {
         interactAction.performed -= OnInteractPerformed;
         interactAction.canceled -= OnInteractCanceled;
+        qteAction.performed -= OnQTEPerformed;
     }
 
     public void OnMove(InputValue value)
@@ -66,6 +73,14 @@ public class CharacterInput : MonoBehaviour
         if (!isInputEnabled) return;
 
         isInteracting = false;
+    }
+
+    private void OnQTEPerformed(InputAction.CallbackContext context)
+    {
+        if (qteMinigame)
+        {
+            qteMinigame.Press();
+        }
     }
 
     private void OnSpeedChange(InputValue value)
