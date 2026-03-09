@@ -945,7 +945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ImagePointSpawner
   imageDetectionManager: {fileID: 569990668521834962}
   sourceImage: {fileID: 2800000, guid: cb1cfda85069541b297faade5e5a1380, type: 3}
-  prefab: {fileID: 0}
+  prefab: {fileID: 2535813747920412523, guid: 05447ecb3e5c14f4594ac33fa4090be9, type: 3}
   worldSize: {x: 400, y: 220}
   spawnZ: 0
   spawnOnCharacter: '*'
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62dacfaff6dd754a8167a234e0c8a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  smokePrefab: {fileID: 0}
+  smokePrefab: {fileID: 2406208235962750530, guid: 6bc8fa7d6007c9c4f9d66bc16a1c8744, type: 3}
   smokeSpawnPoint: {fileID: 6900966955011932226}
   minimapVisual: {fileID: 7055333829225513372, guid: 4523dcff4518ddf4ca7b9a50b34dada1, type: 3}
 --- !u!54 &8461068736894865556
