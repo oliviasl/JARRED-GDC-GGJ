@@ -1,20 +1,18 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using OpenAI;
+using Unity.VisualScripting;
 
 public class ImageDetectionManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D trueImg;
-    [SerializeField] private int textureSize = 128;
-
-    void Start()
-    {
-        TakeScreenshotAndCompare();
-    }
+    [SerializeField] private Texture2D _trueImg;
+    [SerializeField] private int _textureSize = 128;
 
     public void TakeScreenshotAndCompare()
     {
+        // take screenshot and compare to true image
         StartCoroutine(CompareScreenShotToReference());
     }
 
@@ -22,16 +20,21 @@ public class ImageDetectionManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         Texture2D screenShot = ScreenCapture.CaptureScreenshotAsTexture(1);
-        
-        string testStr = GenerateStringFromImage(screenShot);
-        string trueStr = GenerateStringFromImage(trueImg);
 
+        string testStr = GenerateStringFromImage(screenShot, false);
+        string trueStr = GenerateStringFromImage(_trueImg, false);
+        
+        Debug.Log("True image");
+        Debug.Log(trueStr);
+        Debug.Log("Test image");
+        Debug.Log(testStr);
+        
         CompareStrings(testStr, trueStr);
     }
 
-    private string GenerateStringFromImage(Texture2D tex)
+    private string GenerateStringFromImage(Texture2D tex, bool isDetectBlack)
     {
-        tex = ResizeTexture(tex, textureSize, textureSize);
+        tex = ResizeTexture(tex, _textureSize, _textureSize);
         byte[] pngBytes = tex.EncodeToPNG();
         Color[] pix = tex.GetPixels();
         string resultString = "";
@@ -39,7 +42,8 @@ public class ImageDetectionManager : MonoBehaviour
 
         for (int i = 0; i < pix.Length; ++i)
         {
-            if (pix[i].grayscale > 0.5)
+            if (pix[i].grayscale > 0.5 && isDetectBlack 
+                || pix[i].grayscale <= 0.5 && !isDetectBlack)
             {
                 row += "x";
             }
@@ -48,7 +52,7 @@ public class ImageDetectionManager : MonoBehaviour
                 row += "*";
             }
 
-            if (i % textureSize == textureSize - 1)
+            if (i % _textureSize == _textureSize - 1)
             {
                 row += "\n";
                 resultString = row + resultString;
