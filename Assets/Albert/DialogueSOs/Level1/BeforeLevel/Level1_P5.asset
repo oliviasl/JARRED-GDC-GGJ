@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level1_P5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: I want to get their name in big letters in the sky!
+  dialogueText: I want to get their name in big letters in the sky! So put Jay above
+    the city.
   nextDialogue: {fileID: 11400000, guid: 39a3750c1cb23a74b902d32e786d512f, type: 2}
   isInteractable: 1
   dialogueID: 5

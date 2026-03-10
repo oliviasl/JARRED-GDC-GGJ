@@ -19,10 +19,11 @@ public class SpriteSwitcher : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         if (sprites.Length > 0)
             spriteRenderer.sprite = sprites[0];
 
+        // Use the object's actual scale as the base
+        normalScale = transform.localScale;
         targetScale = normalScale;
     }
 
