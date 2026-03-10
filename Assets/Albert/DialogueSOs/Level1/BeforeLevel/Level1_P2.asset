@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level1_P2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Its gonna be my friend's birthday like in 2 days, and last year's
-    gift was kinda bad...
+  dialogueText: "It\u2019s going to be my friend\u2019s birthday in about two days,
+    and last year\u2019s gift was kind of bad\u2026"
   nextDialogue: {fileID: 11400000, guid: 59d1443bd85941941af2496ba9878d0d, type: 2}
   isInteractable: 1
   dialogueID: 2

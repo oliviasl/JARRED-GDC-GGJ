@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level3_P4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Their name is Joey and he's a big ol sleeper
+  dialogueText: "Their name is Joey, and he\u2019s a big ol\u2019 sleeper."
   nextDialogue: {fileID: 11400000, guid: 2bdfe315e96100547a0ffa2ab13f82b8, type: 2}
   isInteractable: 1
   dialogueID: 21
