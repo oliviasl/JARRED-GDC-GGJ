@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class EndPlaneImageTrigger : AerialObstacle
@@ -10,18 +11,11 @@ public class EndPlaneImageTrigger : AerialObstacle
         
         if (_imgDetectionManager)
         {
-            // swap to screenshot camera
-            Camera activeCamera = Camera.main;
-            if (activeCamera != _screenshotCamera)
+            if (_screenshotCamera)
             {
-                if (activeCamera)
-                {
-                    activeCamera.gameObject.SetActive(false);
-                }
-                
                 _screenshotCamera.gameObject.SetActive(true);
             }
-            
+
             _imgDetectionManager.TakeScreenshotAndCompare();
         }
         else
