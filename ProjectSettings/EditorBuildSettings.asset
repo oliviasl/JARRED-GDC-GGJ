@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 2df45783a3ed3a84bac4815da2b342a4
+  - enabled: 1
+    path: Assets/Scenes/DialogueTestScene.unity
+    guid: 32197dd8c4d7a264bb1b7ff3422fb560
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
