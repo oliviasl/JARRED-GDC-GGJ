@@ -8,6 +8,12 @@ public class HealthController : MonoBehaviour
     private int currentHealth;
     
     public UnityEvent onDeath;
+    public UnityEvent onHealthChanged;
+
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
 
     private void Awake()
     {
@@ -16,7 +22,14 @@ public class HealthController : MonoBehaviour
 
     public void TakeDamage(int damageToTake)
     {
-        currentHealth -= damageToTake; 
+        if (damageToTake == 0)
+        {
+            return;
+        }
+        
+        currentHealth -= damageToTake;
+        onHealthChanged.Invoke();
+        
         if(currentHealth <= 0)
         {
             Die();
