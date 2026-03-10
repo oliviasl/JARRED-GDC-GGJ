@@ -23,6 +23,9 @@ public class FrostTester : MonoBehaviour
             goingUp = true;
         }
 
-        frostOverlay.SetFrostLevel(frostLevel);
+        if (frostOverlay)
+        {
+            frostOverlay.SetFrostLevel(frostLevel);
+        }
     }
 }

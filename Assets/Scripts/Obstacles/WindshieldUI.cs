@@ -16,6 +16,10 @@ public class WindshieldUI : MonoBehaviour
     {
         _markerRectTransform = _markerBar.GetComponent<RectTransform>();
         _backgroundRectTransform = _backgroundBar.GetComponent<RectTransform>();
+    }
+
+    private void OnEnable()
+    {
         _qteMinigame.onSuccess.AddListener(Success);
         _qteMinigame.onUpdateMarker.AddListener(UpdateMarker);
     }

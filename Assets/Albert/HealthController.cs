@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
     [Header("Health Values")]
-    [SerializeField] private int currentHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 5;
+    private int currentHealth;
+    
+    public UnityEvent onDeath;
 
     private void Awake()
     {
@@ -16,13 +19,19 @@ public class HealthController : MonoBehaviour
         currentHealth -= damageToTake; 
         if(currentHealth <= 0)
         {
-            //you die
+            Die();
         }
+    }
+
+    public void AutoKill()
+    {
+        TakeDamage(maxHealth);
     }
 
     private void Die()
     {
         //die
+        onDeath.Invoke();
         Debug.Log("Player Died");
     }
 
