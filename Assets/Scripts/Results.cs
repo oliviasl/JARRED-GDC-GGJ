@@ -1,4 +1,6 @@
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Results : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class Results : MonoBehaviour
     public Texture2D screenshot;
     public Texture2D reference;
 
+    public string prevSceneName;
+
     void Awake()
     {
         if (Instance != null)
@@ -18,5 +22,7 @@ public class Results : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(this);
+
+        prevSceneName = SceneManager.GetActiveScene().name;
     }
 }

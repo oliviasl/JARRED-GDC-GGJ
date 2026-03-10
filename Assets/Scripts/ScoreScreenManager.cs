@@ -25,6 +25,19 @@ public class ScoreScreenManager : MonoBehaviour
             Texture2D cleanShot = RemoveBlack(Results.Instance.screenshot);
             requestedImage.sprite = Sprite.Create(cleanRef, new Rect(0, 0, cleanRef.width, cleanRef.height), new Vector2(0.5f, 0.5f));
             yourImage.sprite = Sprite.Create(cleanShot, new Rect(0, 0, cleanShot.width, cleanShot.height), new Vector2(0.5f, 0.5f));
+        
+            if (Results.Instance.prevSceneName == "Level1")
+            {
+                SceneController.Instance.SetSceneToLoad("Level2Dialogue");
+            }
+            else if (Results.Instance.prevSceneName == "Level2")
+            {
+                SceneController.Instance.SetSceneToLoad("Level3Dialogue");
+            }
+            else if (Results.Instance.prevSceneName == "Level3")
+            {
+                SceneController.Instance.SetSceneToLoad("StartMenu");
+            }
         }
     }
 

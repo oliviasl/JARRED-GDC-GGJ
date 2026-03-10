@@ -29,6 +29,4 @@ public class EndPlaneImageTrigger : AerialObstacle
             Debug.Log("No Image Detection Manager referenced.");
         }
     }
-
-    
 }

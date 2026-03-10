@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73cea7cb466e83438a736cb16cf9f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
-  SceneToLoad: Level1
+  SceneToLoad: TutorialScene
 --- !u!4 &122340005
 Transform:
   m_ObjectHideFlags: 0

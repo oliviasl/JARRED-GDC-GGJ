@@ -213,9 +213,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1151754767}
   - {fileID: 2002047590}
   - {fileID: 270484848}
-  - {fileID: 1151754767}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73cea7cb466e83438a736cb16cf9f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
-  SceneToLoad: 
+  SceneToLoad: TutorialScene
 --- !u!1 &270484847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   sceneControlller: {fileID: 258540003}
-  firstLevel: ScoreScreen
+  firstLevel: TutorialScene
 --- !u!1 &2002047589
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,11 +15,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay.unity
     guid: 25dd6c95d40870a44aa801af26c830f8
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 5a3990435c89bee47a3562d38e8763f0
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 53056f9b7d2bc8e42bb0c2c53ec58da4
+  - enabled: 1
     path: Assets/Scenes/ScoreScreen.unity
     guid: b995b2d1e3e11a84fa2de77a097c8e6e
   - enabled: 1
+    path: Assets/Scenes/Level2Dialogue.unity
+    guid: e1e91b8d00b576147bdf1fd494d49359
+  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 836332f0cd5288e44bc0699fc86fa8aa
+  - enabled: 1
+    path: Assets/Scenes/Level3Dialogue.unity
+    guid: 1a2ad54c933657b4a8848895d1d310a3
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: c9e4b874d6983d94cae59de6158f58be

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
@@ -20,5 +21,18 @@ public class SceneController : MonoBehaviour
     public void SetSceneToLoad(string newLevel)
     {
         SceneToLoad = newLevel;
+    }
+
+    void Update()
+    {
+        if (Keyboard.current.rKey.isPressed && Keyboard.current.digit0Key.isPressed)
+        {
+            EmergencyExitToMenu();
+        }
+    }
+
+    void EmergencyExitToMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }
