@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73cea7cb466e83438a736cb16cf9f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneController
-  SceneToLoad: Level1
+  SceneToLoad: Level2
 --- !u!4 &122340005
 Transform:
   m_ObjectHideFlags: 0
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1369591035}
   typewriter: {fileID: 1369591036}
   dialogueEvents:
-  - dialogueID: 15
+  - dialogueID: 17
     onDialogueReached:
       m_PersistentCalls:
         m_Calls:

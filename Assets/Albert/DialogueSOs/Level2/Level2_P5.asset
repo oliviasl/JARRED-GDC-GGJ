@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level2_P5
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Okay now go boy! Fly for me!
-  nextDialogue: {fileID: 0}
+  dialogueText: Write the name Jane, and make it pretty!
+  nextDialogue: {fileID: 11400000, guid: 8fdd87eb54b054f4682cd2ee1927d893, type: 2}
   isInteractable: 1
   dialogueID: 15
