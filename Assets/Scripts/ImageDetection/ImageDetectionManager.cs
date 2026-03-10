@@ -92,7 +92,7 @@ public class ImageDetectionManager : MonoBehaviour
             }
         }
         
-        Debug.Log("Similarity score: " + (float)similarCount / (float)str1.Length);
+        Debug.Log("Similarity score: " + (float)similarCount / (float)pixelCount);
         
         return (float)similarCount / (float)pixelCount;
     }

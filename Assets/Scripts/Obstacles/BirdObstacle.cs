@@ -1,9 +1,26 @@
+using System;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class BirdObstacle : AerialObstacle
 {
     [SerializeField] private Canvas _planeHUD;
     [SerializeField] private GameObject _splatImgPrefab;
+    [SerializeField] private float _speed = 5f;
+    [SerializeField] private float _despawnTime = 10f;
+
+    private BirdSpawner _birdSpawner;
+    private float _despawnTimer;
+
+    public void SetBirdSpawner(BirdSpawner spawner)
+    {
+        _birdSpawner = spawner;
+    }
+
+    public void SetPlaneHUD(Canvas hud)
+    {
+        _planeHUD = hud;
+    }
 
     public override void CollisionEvent(Collision collision)
     {
@@ -15,12 +32,15 @@ public class BirdObstacle : AerialObstacle
                 
             // if off screen don't fire
             Vector3 screenPosition = mainCamera.WorldToScreenPoint(transform.position);
+            /*
             if (screenPosition.z < 0f || screenPosition.x < -canvasRectTransform.rect.width
-                                      || screenPosition.y < -canvasRectTransform.rect.height || screenPosition.x > canvasRectTransform.rect.width
+                                      || screenPosition.y < -canvasRectTransform.rect.height 
+                                      || screenPosition.x > canvasRectTransform.rect.width
                                       || screenPosition.y > canvasRectTransform.rect.height)
             {
                 return;
             }
+            */
                 
             // create image based on screen projection
             GameObject newImage = Instantiate(_splatImgPrefab) as GameObject;
@@ -34,5 +54,22 @@ public class BirdObstacle : AerialObstacle
         }
     }
 
-    
+    private void Update()
+    {
+        transform.position = transform.position + Time.deltaTime * _speed * transform.forward;
+
+        _despawnTimer += Time.deltaTime;
+        if (_despawnTimer >= _despawnTime)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (_birdSpawner)
+        {
+            _birdSpawner.RemoveBird(gameObject);
+        }
+    }
 }
