@@ -128,12 +128,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: _planeHUD
       value: 
       objectReference: {fileID: 6031032716667926897}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _despawnTime
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5082035827487997709, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.453
+      value: 16.68
       objectReference: {fileID: 0}
     - target: {fileID: 5082035827487997709, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -268,12 +276,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: _planeHUD
       value: 
       objectReference: {fileID: 6031032716667926897}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _despawnTime
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5082035827487997709, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.396
+      value: -25.3
       objectReference: {fileID: 0}
     - target: {fileID: 5082035827487997709, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -508,9 +524,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: _planeHUD
       value: 
       objectReference: {fileID: 6031032716667926897}
+    - target: {fileID: 3621082868130816923, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
+      propertyPath: _despawnTime
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5082035827487997709, guid: 6b7cc710c7d4a4df992924d7b5255d06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -582,7 +606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5192600051323705691, guid: 2d5d706ed652f4bc59d04d7a5724d636, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -12.6
       objectReference: {fileID: 0}
     - target: {fileID: 5192600051323705691, guid: 2d5d706ed652f4bc59d04d7a5724d636, type: 3}
       propertyPath: m_LocalRotation.w
