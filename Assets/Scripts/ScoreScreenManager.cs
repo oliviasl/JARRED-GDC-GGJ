@@ -20,9 +20,29 @@ public class ScoreScreenManager : MonoBehaviour
         if (Results.Instance != null)
         {
             similarityText.text = (int)(Results.Instance.similarity * 100f) + "% Match!";
-            requestedImage.sprite = Sprite.Create(Results.Instance.reference, new Rect(0, 0, Results.Instance.reference.width, Results.Instance.reference.height), new Vector2(0.5f, 0.5f));
-            yourImage.sprite = Sprite.Create(Results.Instance.screenshot, new Rect(0, 0, Results.Instance.screenshot.width, Results.Instance.screenshot.height), new Vector2(0.5f, 0.5f));
+            Texture2D cleanRef = RemoveBlack(Results.Instance.reference);
+            Texture2D cleanShot = RemoveBlack(Results.Instance.screenshot);
+            requestedImage.sprite = Sprite.Create(cleanRef, new Rect(0, 0, cleanRef.width, cleanRef.height), new Vector2(0.5f, 0.5f));
+            yourImage.sprite = Sprite.Create(cleanShot, new Rect(0, 0, cleanShot.width, cleanShot.height), new Vector2(0.5f, 0.5f));
         }
+    }
+
+    private Texture2D RemoveBlack(Texture2D source, float threshold = 0.1f)
+    {
+        Texture2D result = new Texture2D(source.width, source.height, TextureFormat.RGBA32, false);
+        Color[] pixels = source.GetPixels();
+
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            if (pixels[i].r <= threshold && pixels[i].g <= threshold && pixels[i].b <= threshold)
+            {
+                pixels[i] = Color.clear;
+            }
+        }
+
+        result.SetPixels(pixels);
+        result.Apply();
+        return result;
     }
 
     public void NextScene()
