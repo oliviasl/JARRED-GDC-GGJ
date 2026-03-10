@@ -31890,7 +31890,7 @@ Transform:
   m_GameObject: {fileID: 2927769502860905950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.225, y: 0.124, z: 0.491}
+  m_LocalPosition: {x: -0.225, y: 0.124, z: 0.495}
   m_LocalScale: {x: 0.6101638, y: 0.3124503, z: 0.02962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -60214,6 +60214,7 @@ GameObject:
   - component: {fileID: 3353517179108726768}
   - component: {fileID: 3585957924933690362}
   - component: {fileID: 6402924979453400493}
+  - component: {fileID: 2574934357147461450}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Player
@@ -60238,6 +60239,7 @@ Transform:
   - {fileID: 6759952654852125601}
   - {fileID: 1454604228370235068}
   - {fileID: 6000658044392667146}
+  - {fileID: 5550727693936347377}
   m_Father: {fileID: 7761317933036762064}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &858218565034704971
@@ -60373,8 +60375,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 4.024765, z: 2.0561433}
-  m_Center: {x: 3.989288e-16, y: -0.086164474, z: 0.528072}
+  m_Size: {x: 1.6974448, y: 1.3454247, z: 1.2158961}
+  m_Center: {x: -0.34872246, y: -0.15164185, z: 0.9481957}
 --- !u!114 &6402924979453400493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60394,6 +60396,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2574934357147461450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534580140856304522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e8bf468372e400dafc9dcb1d57cca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollisionPoint
+  Point: {fileID: 6574922497454418108}
 --- !u!1 &5546352128482695898
 GameObject:
   m_ObjectHideFlags: 0
@@ -73101,6 +73116,37 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6574922497454418108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5550727693936347377}
+  m_Layer: 0
+  m_Name: CollisionPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5550727693936347377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574922497454418108}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.426, y: 0.201, z: 0.466}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5383031234084252694}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6582961526684537023
 GameObject:
   m_ObjectHideFlags: 0
