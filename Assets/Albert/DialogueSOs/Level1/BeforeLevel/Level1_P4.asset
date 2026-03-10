@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level1_P4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Well anyways!
+  dialogueText: anyways!
   nextDialogue: {fileID: 11400000, guid: 4d28609e0cdd43d428e22ddd70998162, type: 2}
   isInteractable: 1
   dialogueID: 4

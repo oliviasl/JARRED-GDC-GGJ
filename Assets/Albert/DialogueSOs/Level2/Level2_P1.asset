@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level2_P1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Hey there pilot boy!
+  dialogueText: Hey there pilot!
   nextDialogue: {fileID: 11400000, guid: a476ddb7944fe8845b3c214dc6c5b5be, type: 2}
   isInteractable: 1
   dialogueID: 11

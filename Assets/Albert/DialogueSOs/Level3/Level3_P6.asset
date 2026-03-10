@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level3_P6
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Well go out there do your thing pilot!
+  dialogueText: Well, go out there and do your thing, pilot!
   nextDialogue: {fileID: 0}
   isInteractable: 1
   dialogueID: 23

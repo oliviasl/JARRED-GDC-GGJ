@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level2_P3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: In the Sky!!
+  dialogueText: In the Sky!
   nextDialogue: {fileID: 11400000, guid: 3fcd85c9388903546b5736266ef6ae69, type: 2}
   isInteractable: 1
   dialogueID: 13

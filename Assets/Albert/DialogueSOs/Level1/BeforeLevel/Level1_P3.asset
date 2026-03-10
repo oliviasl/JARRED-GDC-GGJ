@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level1_P3
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: We'll never look at lobsters the same...
+  dialogueText: "Let\u2019s just say we\u2019ll never look at lobsters the same way
+    again..."
   nextDialogue: {fileID: 11400000, guid: 738ae158e9d25ca4090140b15ef9848d, type: 2}
   isInteractable: 1
   dialogueID: 3

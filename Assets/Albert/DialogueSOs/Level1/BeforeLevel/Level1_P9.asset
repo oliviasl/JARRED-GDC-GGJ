@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level1_P9
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: So go ahead and write it just like this
+  dialogueText: "So make sure it\u2019s nice and big, high above the city."
   nextDialogue: {fileID: 11400000, guid: 08370bc2a44e81b4793d1b559b06ad24, type: 2}
   isInteractable: 1
   dialogueID: 9

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84617d6baf42c034e89598d4843408b2, type: 3}
   m_Name: Level3_P2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSO
-  dialogueText: Oh my bad, thought you were a cow
+  dialogueText: "Oh, my bad\u2014I thought you were a cow."
   nextDialogue: {fileID: 11400000, guid: 799499446c2e2004d930556bf86be806, type: 2}
   isInteractable: 1
   dialogueID: 19
