@@ -43,18 +43,22 @@ public class DialogueController : MonoBehaviour
     {
         if(currentDialogue.isInteractable)
         {
-            if (!dialogueIsComplete)
+            if(!conversationIsComplete)
             {
-                dialogueIsComplete = true;
+                if (!dialogueIsComplete)
+                {
+                    dialogueIsComplete = true;
 
-                //speed up dialogue/cut to end of it
-            }
-            if (dialogueIsComplete)
-            {
-                currentDialogue = nextDialogue;
+                    //speed up dialogue/cut to end of it
+                }
+                if (dialogueIsComplete)
+                {
+                    currentDialogue = nextDialogue;
 
-                UpdateDialogue();
+                    UpdateDialogue();
+                }
             }
+            
         }
         else
         {
