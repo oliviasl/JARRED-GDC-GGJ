@@ -24,6 +24,7 @@ public class BirdObstacle : AerialObstacle
     {
         base.CollisionEvent(collision);
         Camera mainCamera = collision.gameObject.GetComponentInChildren<Camera>();
+        Debug.Log(collision.gameObject);
         if (mainCamera)
         {
             Ray ray = new Ray(transform.position, (collision.transform.position - transform.position).normalized);
