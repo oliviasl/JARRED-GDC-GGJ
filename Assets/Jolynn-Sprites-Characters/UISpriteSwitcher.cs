@@ -10,6 +10,8 @@ public class UISpriteSwicher : MonoBehaviour
     private float timer = 0f;
     private int currentIndex = 0;
 
+    public bool isAnimating = false;
+
     void Start()
     {
         image = GetComponent<Image>();
@@ -19,6 +21,8 @@ public class UISpriteSwicher : MonoBehaviour
 
     void Update()
     {
+        if (!isAnimating) return;
+
         timer += Time.deltaTime;
         if (timer >= switchInterval)
         {
@@ -28,4 +32,17 @@ public class UISpriteSwicher : MonoBehaviour
         }
     }
 
+    public void StartAnimating()
+    {
+        isAnimating = true;
+    }
+
+    public void StopAnimating()
+    {
+        isAnimating = false;
+        currentIndex = 0;
+        timer = 0f;
+        if (sprites.Length > 0)
+            image.sprite = sprites[0];
+    }
 }
