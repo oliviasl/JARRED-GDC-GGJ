@@ -24,10 +24,17 @@ public class BirdObstacle : AerialObstacle
     {
         base.CollisionEvent(collision);
         Camera mainCamera = collision.gameObject.GetComponentInChildren<Camera>();
-        Debug.Log(collision.gameObject);
+
         if (mainCamera)
         {
-            Ray ray = new Ray(transform.position, (collision.transform.position - transform.position).normalized);
+            Vector3 objPoint = collision.gameObject.transform.position;
+            CollisionPoint collisionPoint = collision.gameObject.GetComponent<CollisionPoint>();
+            if (collisionPoint)
+            {
+                objPoint = collisionPoint.Point.transform.position;
+            }
+            
+            Ray ray = new Ray(transform.position, (objPoint - transform.position).normalized);
             int layerMask = LayerMask.GetMask("Windshield");
             RaycastHit hitData;
             
@@ -36,7 +43,6 @@ public class BirdObstacle : AerialObstacle
             {
                 GameObject newSplat = Instantiate(_splatPrefab);
                 newSplat.transform.position = hitData.point;
-                // transform.Rotate(0, -90, 0, Space.World); 
                 newSplat.transform.SetParent(windShield.transform, true);
 
                 Destroy(gameObject);
