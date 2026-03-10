@@ -6,7 +6,7 @@ public class BirdSpawner : MonoBehaviour
     [SerializeField] private GameObject birdPrefab;
     [SerializeField] private int maxBirds = 3;
     [SerializeField] private float spawnCooldown = 5f;
-    [SerializeField] private Canvas planeHUD;
+    [SerializeField] private GameObject windshield;
 
     [Header("Spawn Bounds")] 
     [SerializeField] private int minX = -50;
@@ -42,7 +42,7 @@ public class BirdSpawner : MonoBehaviour
             if (obstacle)
             {
                 obstacle.SetBirdSpawner(this);
-                obstacle.SetPlaneHUD(planeHUD);
+                obstacle.SetPlaneWindshield(windshield);
             }
             birds.Add(bird);
             

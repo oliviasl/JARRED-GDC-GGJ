@@ -3,13 +3,20 @@ using UnityEngine.UI;
 
 public class BirdSplat : MonoBehaviour
 {
+    [SerializeField] private Material matOneWipe;
+    [SerializeField] private Material matTwoWipe;
+    [SerializeField] private SkinnedMeshRenderer mesh;
+
     private int _health = 3;
-    private Image _image;
     private QTEMinigame _qteMinigame;
 
     void Start()
     {
-        _image = GetComponent<Image>();
+        if (!mesh)
+        {
+            mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+        }
+
         _qteMinigame = FindAnyObjectByType<QTEMinigame>();
         if (_qteMinigame)
         {
@@ -28,11 +35,15 @@ public class BirdSplat : MonoBehaviour
     void WipeBird()
     {
         --_health;
-
-        Color tempColor = _image.color;
-        tempColor.a -= 0.33f;
-        _image.color = tempColor;
         
+        if (_health == 2)
+        {
+            mesh.material = matOneWipe;
+        }
+        else if (_health == 1)
+        {
+            mesh.material = matTwoWipe;
+        }
         if (_health <= 0)
         {
             Destroy(gameObject);
