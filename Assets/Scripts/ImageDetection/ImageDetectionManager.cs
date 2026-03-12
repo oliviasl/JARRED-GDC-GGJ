@@ -39,7 +39,7 @@ public class ImageDetectionManager : MonoBehaviour
 
         results.screenshot = screenShot;
         results.reference = _trueImg;
-        results.similarity = CompareStrings(testStr, trueStr);
+        results.similarity = CompareStrings(trueStr, testStr);
         
         SceneController.Instance.LoadScene();
     }
