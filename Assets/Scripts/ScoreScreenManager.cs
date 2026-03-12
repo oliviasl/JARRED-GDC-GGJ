@@ -43,19 +43,19 @@ public class ScoreScreenManager : MonoBehaviour
 
     private void SetGrade(int v)
     {
-        if (v >= 74f)
+        if (v >= 50f)
         {
             similarityText.text = "S";
         }
-        else if (v >= 60f)
+        else if (v >= 40f)
         {
             similarityText.text = "A";
         }
-        else if (v >= 55f)
+        else if (v >= 30f)
         {
             similarityText.text = "B";
         }
-        else if (v >= 35f)
+        else if (v >= 20f)
         {
             similarityText.text = "C";
         }
